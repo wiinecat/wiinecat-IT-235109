@@ -57,5 +57,15 @@ namespace Library
             info[1] = $"год: {Year}, издательство: {Izdatel}, номер: {Nomer}, статус: {statusText}, цена: {Cena} руб.";
             return info;
         }
+        public int CompareTo(Edition other)
+        {
+            int authorComparison = Avtors[0].CompareTo(other.Avtors[0]);
+            if (authorComparison != 0) return authorComparison;
+
+            int nameComparison = Name.CompareTo(other.Name);
+            if (nameComparison != 0) return nameComparison;
+
+            return other.Year.CompareTo(Year); 
+        }
     }
 }
